@@ -10,7 +10,6 @@ body{
 }
 .attribution{
     text-align: center;
-    margin-top: 50px;
     font-size: 10px;
 }
 .estado{
@@ -92,6 +91,19 @@ margin:auto;
     justify-content: center;
     flex-wrap: wrap;
 }
+.jugar{
+    padding:10px;
+    align-content: center;
+    margin:auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    border: solid 2px #000;
+    background-color: rgb(46, 86, 196);
+    width:130px;
+    text-align: center;
+    font-weight: 600;
+    
+}
 
 /*se aplica cuando el ancho es menor a 800*/
 @media screen and (max-width:600px){
@@ -114,6 +126,10 @@ margin:auto;
         width:80%;
         margin:auto;
         margin-top:50px;
+    }
+
+    .attribution{
+        margin-top:80px;
     }
 }
 
