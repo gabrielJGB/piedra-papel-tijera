@@ -1,18 +1,8 @@
-piedra = document.querySelector('.piedra');
-papel = document.querySelector('.papel');
-tijera = document.querySelector('.tijera');
-
-piedra.addEventListener('click',clickPiedra);
-papel.addEventListener('click',clickPapel);
-tijera.addEventListener('click',clickTijera);
-
 let opcionUsuario = '';
 
-function generarOpcionMaquina(){
-    const $generarOpcionMaquina = document.querySelectorAll('.boton');
-    const i = Math.floor(Math.random() * 3);
-    return $generarOpcionMaquina[i];
-}
+piedra = document.querySelector('.piedra').addEventListener('click',clickPiedra);
+papel = document.querySelector('.papel').addEventListener('click',clickPapel);
+tijera = document.querySelector('.tijera').addEventListener('click',clickTijera);
 
 function clickPiedra(){
     opcionUsuario = 'piedra';
@@ -27,17 +17,21 @@ function clickPapel(){
 function clickTijera(){
     opcionUsuario = 'tijera';
     comienzoJuego();
+
     return opcionUsuario;
+}
+
+function generarOpcionMaquina(){
+    const $generarOpcionMaquina = document.querySelectorAll('.boton');
+    const i = Math.floor(Math.random() * 3);
+    return $generarOpcionMaquina[i];
 }
 
 
 function comienzoJuego(){
     const opcionMaquina = generarOpcionMaquina().classList[1];
-
     
-
-    console.log('Usuario: '+opcionUsuario);
-    console.log('Maquina: '+opcionMaquina);
+    manejarResultado(opcionMaquina);
 
     if(opcionUsuario === 'piedra'){
         if(opcionMaquina === 'tijera'){
@@ -74,7 +68,21 @@ function comienzoJuego(){
             console.log('empate');
         }
     }
-
-    
 }
 
+function manejarResultado(opcionMaquina){
+    const $botones = document.querySelector('.botones');
+    const $resultado = document.querySelector('.resultado');
+    $botones.style.display = "none";
+    const elementoUsuario = document.querySelector('.'+opcionUsuario);
+    const elementoMaquina = document.querySelector('.'+opcionMaquina);
+
+    $resultado.append(document.querySelector('.'+opcionUsuario));
+    $resultado.append(document.querySelector('.'+opcionMaquina));
+    
+
+/*console.log(document.querySelector('.'+opcionUsuario));
+console.log(document.querySelector('.'+opcionMaquina));*/
+
+
+}
