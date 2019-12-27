@@ -4,9 +4,15 @@
 }
 body{
     font-family: 'Barlow Semi Condensed', sans-serif;
-    background: rgb(9,7,56);
-    background: linear-gradient(90deg, rgba(9,7,56,1) 0%, rgba(28,27,92,1) 25%, rgba(31,31,99,1) 37%, rgba(34,34,93,1) 49%, rgba(29,28,91,1) 60%, rgba(25,23,79,1) 78%, rgba(13,9,47,1) 100%);
+    background: rgb(2,18,68);
+    background: linear-gradient(90deg, rgba(2,18,68,1) 0%, rgba(7,22,99,1) 23%, rgba(11,38,116,1) 46%, rgba(18,46,134,1) 58%, rgba(8,45,126,1) 76%, rgba(4,30,74,1) 100%);
     color:#fff;
+}
+.attribution{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 10px;
+    font-style: italic;
 }
 .estado{
     margin:auto;
@@ -33,10 +39,11 @@ body{
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     color:rgb(4, 0, 37);
-    font-size: 15px;
+    font-size: 14px;
 }
 .numero{
     font-size: 40px;
+    color:rgb(32, 32, 32);
 }
 .title{
     font-size: 30px;
@@ -44,13 +51,57 @@ body{
 
 }
 
+.botones{
+    margin:auto;
+    margin-top: 80px;
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.boton 
+{
+    padding:30px;
+    margin:10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+}
+
+.piedra{
+    border:15px solid #DB2E4D;
+    box-shadow: inset 0em 0.5em #BABFD4, 0em 0.7em #9D1634;
+}
+.papel{
+    border: 15px solid #4865f4;
+    box-shadow: inset 0em 0.5em #BABFD4, 0em 0.7em #2A45C2;
+}
+.tijera{
+    border: 15px solid#ec9e0e;
+    -webkit-box-shadow: inset 0em 0.5em #BABFD4, 0em 0.7em #C76C1B;
+    box-shadow: inset 0em 0.5em #BABFD4, 0em 0.7em #C76C1B;
+}
+
+
 /*se aplica cuando el ancho es menor a 800*/
 @media screen and (max-width:600px){
     .estado{
         width:80%;
         margin:auto;
     }
+    .botones{
+        width:300px;
+        margin-top:50px;
+        flex-wrap: wrap;
+
+    }
+    .boton{
+        width: 40px;
+        height:40px;
+ 
+    }
 }
-
-
 
