@@ -10,9 +10,7 @@ body{
 }
 .attribution{
     text-align: center;
-    margin-top: 50px;
     font-size: 10px;
-    font-style: italic;
 }
 .estado{
     margin:auto;
@@ -85,6 +83,27 @@ body{
     box-shadow: inset 0em 0.5em #BABFD4, 0em 0.7em #C76C1B;
 }
 
+.resultado{
+margin:auto;
+    margin-top: 80px;
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.jugar{
+    padding:10px;
+    align-content: center;
+    margin:auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    border: solid 2px #000;
+    background-color: rgb(46, 86, 196);
+    width:130px;
+    text-align: center;
+    font-weight: 600;
+    
+}
 
 /*se aplica cuando el ancho es menor a 800*/
 @media screen and (max-width:600px){
@@ -102,6 +121,15 @@ body{
         width: 40px;
         height:40px;
  
+    }
+    .resultado{
+        width:80%;
+        margin:auto;
+        margin-top:50px;
+    }
+
+    .attribution{
+        margin-top:80px;
     }
 }
 
