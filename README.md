@@ -2,6 +2,9 @@
 
 ![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
 
+
+LIVE: https://gabrieljgb.github.io/piedra-papel-tijera/
+
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
