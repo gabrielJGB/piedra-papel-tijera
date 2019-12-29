@@ -46,7 +46,8 @@ body{
 .title{
     font-size: 30px;
     width:150px;
-
+    
+text-shadow: 3px 3px 0px rgb(0, 0, 0);
 }
 
 .botones{
@@ -90,14 +91,32 @@ margin:auto;
     width: 400px;
     justify-content: center;
     flex-wrap: wrap;
-    border:solid 2px blue;
     justify-content: space-between;
+
 }
-.resultadomaquina{
-    border: solid 1px yellow;
+
+
+.cpu{
+    padding-left:57px;
+    text-shadow: 2px 2px 2px #CECECE;
+    
 }
-.resultadousuario{
-    border:solid 1px red;
+.jugador{
+    padding-left:35px;
+    text-shadow: 2px 2px 2px #CECECE;
+
+}
+.resultadofinal{
+    padding:10px;
+    align-content: center;
+    margin:auto;
+    margin-top: 50px;
+    width: max-content;
+    text-align: center;
+    font-weight: 300;
+    font-size: 35px;
+    display:flex;
+    text-shadow: 3px 3px 0px rgb(0, 0, 0);
 }
 
 .jugar{
@@ -122,7 +141,7 @@ margin:auto;
     }
     .botones{
         width:300px;
-        margin-top:50px;
+        margin-top:65px;
         flex-wrap: wrap;
 
     }
@@ -135,6 +154,7 @@ margin:auto;
         width:100%;
         margin:auto;
         margin-top:50px;
+        justify-content: space-around;
     }
 
     .attribution{

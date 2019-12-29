@@ -5,7 +5,6 @@ const $papel = document.querySelector('.papel');
 const $tijera = document.querySelector('.tijera');
 const $jugarDeNuevo  = document.querySelector('.jugar');
 const $resultado = document.querySelector('.resultado');
-
 const $botones = document.querySelector('.botones');
 const $resultadoMaquina = document.querySelector('.resultadomaquina');
 const $resultadoUsuario = document.querySelector('.resultadousuario');
@@ -13,7 +12,9 @@ const elementoResultadoUsuario = document.createElement('div');
 const elementoResultadoMaquina = document.createElement('div');
 const imgUsuario = document.createElement('img');
 const imgMaquina = document.createElement('img');
-
+const $resultadoFinal = document.querySelector('.resultadofinal');
+const $jugador = document.querySelector('.jugador');
+const $cpu = document.querySelector('.cpu');
 
 agregarEventListener();
 
@@ -60,60 +61,67 @@ function actualizarPuntaje(puntaje){
 function comienzoJuego(){
     const opcionMaquina = generarOpcionMaquina().classList[1];
     $resultado.style.display = "";
+    $resultadoFinal.style.display="";
 
     if(opcionUsuario === 'piedra'){
         if(opcionMaquina === 'tijera'){
-            console.log('ganaste');
+            $resultadoFinal.textContent = 'GANASTE!';
             puntaje++;
         }
         else if (opcionMaquina === 'papel'){
-            console.log('perdiste');
+            $resultadoFinal.textContent = 'PERDISTE!';
             puntaje--;
         }
         else{
-            console.log('empate');
+            $resultadoFinal.textContent = 'EMPATE';
         }
     }
 
     if(opcionUsuario === 'papel'){
         if(opcionMaquina === 'piedra'){
-            console.log('ganaste');
+            $resultadoFinal.textContent = 'GANASTE!';
             puntaje++;
         }
         else if (opcionMaquina === 'tijera'){
-            console.log('perdiste');
+            $resultadoFinal.textContent = 'PERDISTE!';
             puntaje--;
         }
         else{
-            console.log('empate');
+            $resultadoFinal.textContent = 'EMPATE';
         }
     }
 
     if(opcionUsuario === 'tijera'){
         if(opcionMaquina === 'papel'){
-            console.log('ganaste');
+            $resultadoFinal.textContent = 'GANASTE!';
             puntaje++;
         }
         else if (opcionMaquina === 'piedra'){
-            console.log('perdiste');
+            $resultadoFinal.textContent = 'PERDISTE!';
             puntaje--;
         }
         else{
-            console.log('empate');
+            $resultadoFinal.textContent = 'EMPATE';
         }
     }
+  
     actualizarPuntaje(puntaje);
     bloquearInput();
     manejarResultado(opcionMaquina);
     agregarEventListener();
 }
 
+$cpu.style.display = "none";
+$jugador.style.display = "none";
+
 function jugarDeNuevo(){
     const $botones = document.querySelector('.botones');
     $resultado.style.display = "none";
     $jugar.style.display = "none";
     $botones.style.display = "";
-
+    $resultadoFinal.style.display="none";
+    $cpu.style.display = "none";
+    $jugador.style.display = "none";
     
 }
 
@@ -122,6 +130,8 @@ function manejarResultado(opcionMaquina){
 
     $jugar.style.display = "";
     $botones.style.display = "none";
+    $cpu.style.display = "";
+    $jugador.style.display = "";
     imgUsuario.src = resultadoImagenUsuario();
     imgMaquina.src = resultadoImagenMaquina(opcionMaquina);
     elementoResultadoMaquina.className = 'boton '+opcionMaquina;
