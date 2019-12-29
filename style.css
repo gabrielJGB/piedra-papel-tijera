@@ -90,7 +90,16 @@ margin:auto;
     width: 400px;
     justify-content: center;
     flex-wrap: wrap;
+    border:solid 2px blue;
+    justify-content: space-between;
 }
+.resultadomaquina{
+    border: solid 1px yellow;
+}
+.resultadousuario{
+    border:solid 1px red;
+}
+
 .jugar{
     padding:10px;
     align-content: center;

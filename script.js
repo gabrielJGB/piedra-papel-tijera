@@ -1,26 +1,43 @@
 let opcionUsuario = '';
-let puntaje;
-const piedra = document.querySelector('.piedra').addEventListener('click',clickPiedra);
-const papel = document.querySelector('.papel').addEventListener('click',clickPapel);
-const tijera = document.querySelector('.tijera').addEventListener('click',clickTijera);
+let puntaje=0;
+const $piedra = document.querySelector('.piedra');
+const $papel = document.querySelector('.papel');
+const $tijera = document.querySelector('.tijera');
+const $jugarDeNuevo  = document.querySelector('.jugar');
+const $resultado = document.querySelector('.resultado');
+
+const $botones = document.querySelector('.botones');
+const $resultadoMaquina = document.querySelector('.resultadomaquina');
+const $resultadoUsuario = document.querySelector('.resultadousuario');
+const elementoResultadoUsuario = document.createElement('div');
+const elementoResultadoMaquina = document.createElement('div');
+const imgUsuario = document.createElement('img');
+const imgMaquina = document.createElement('img');
+
+
+agregarEventListener();
+
+function agregarEventListener(){
+    $piedra.addEventListener('click',clickPiedra);
+    $papel.addEventListener('click',clickPapel);
+    $tijera.addEventListener('click',clickTijera);
+    $jugarDeNuevo.addEventListener('click',jugarDeNuevo);
+}
+
 const $jugar = document.querySelector('.jugar');
 $jugar.style.display = "none";
 
 function clickPiedra(){
     opcionUsuario = 'piedra';
     comienzoJuego();
-    return opcionUsuario;
 }
 function clickPapel(){
     opcionUsuario = 'papel';
     comienzoJuego();
-    return opcionUsuario;
 }
 function clickTijera(){
     opcionUsuario = 'tijera';
     comienzoJuego();
-
-    return opcionUsuario;
 }
 
 function generarOpcionMaquina(){
@@ -29,10 +46,20 @@ function generarOpcionMaquina(){
     return $generarOpcionMaquina[i];
 }
 
+function bloquearInput(){
+    $piedra.removeEventListener('click',clickPiedra);
+    $papel.removeEventListener('click',clickPapel);
+    $tijera.removeEventListener('click',clickTijera);
+}
+
+function actualizarPuntaje(puntaje){
+    const $score = document.querySelector('.numero');
+    $score.textContent = puntaje;
+}
 
 function comienzoJuego(){
     const opcionMaquina = generarOpcionMaquina().classList[1];
-    manejarResultado(opcionMaquina);
+    $resultado.style.display = "";
 
     if(opcionUsuario === 'piedra'){
         if(opcionMaquina === 'tijera'){
@@ -75,22 +102,58 @@ function comienzoJuego(){
             console.log('empate');
         }
     }
+    actualizarPuntaje(puntaje);
+    bloquearInput();
+    manejarResultado(opcionMaquina);
+    agregarEventListener();
+}
+
+function jugarDeNuevo(){
+    const $botones = document.querySelector('.botones');
+    $resultado.style.display = "none";
+    $jugar.style.display = "none";
+    $botones.style.display = "";
+
+    
 }
 
 function manejarResultado(opcionMaquina){
-    const $botones = document.querySelector('.botones');
-    const $resultado = document.querySelector('.resultado');
+    
+
     $jugar.style.display = "";
     $botones.style.display = "none";
-    const elementoUsuario = document.querySelector('.'+opcionUsuario);
-    const elementoMaquina = document.querySelector('.'+opcionMaquina);
+    imgUsuario.src = resultadoImagenUsuario();
+    imgMaquina.src = resultadoImagenMaquina(opcionMaquina);
+    elementoResultadoMaquina.className = 'boton '+opcionMaquina;
+    elementoResultadoUsuario.className = 'boton '+opcionUsuario;
+    elementoResultadoUsuario.appendChild(imgUsuario);
+    elementoResultadoMaquina.appendChild(imgMaquina)
 
-    $resultado.appendChild(document.querySelector('.'+opcionUsuario));
-    $resultado.appendChild(document.querySelector('.'+opcionMaquina));
+    $resultadoMaquina.appendChild(elementoResultadoMaquina);
+    $resultadoUsuario.appendChild(elementoResultadoUsuario);
+
     
-    console.log(puntaje)
-/*console.log(document.querySelector('.'+opcionUsuario));
-console.log(document.querySelector('.'+opcionMaquina));*/
+}
 
+function resultadoImagenUsuario(){
+    
+    if(opcionUsuario ==='piedra')
+        return 'images/icon-rock.svg'
+    else if(opcionUsuario === 'papel')
+        return 'images/icon-paper.svg'
+    else
+        return 'images/icon-scissors.svg'
 
 }
+
+function resultadoImagenMaquina(opcionMaquina){
+    if(opcionMaquina ==='piedra')
+    return 'images/icon-rock.svg'
+    else if(opcionMaquina === 'papel')
+    return 'images/icon-paper.svg'
+    else
+    return 'images/icon-scissors.svg'
+}
+
+
+
