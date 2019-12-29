@@ -141,7 +141,7 @@ function manejarResultado(opcionMaquina) {
 
     
     setTimeout(function () {
-        //console.log("2do");
+        
         $resultadoMaquina.style.border= "";
         $jugar.style.display = "";
         $resultadoMaquina.style.display = "";
