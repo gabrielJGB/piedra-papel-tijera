@@ -110,9 +110,9 @@ function comienzoJuego(){
     manejarResultado(opcionMaquina);
     agregarEventListener();
 }
-
 $cpu.style.display = "none";
 $jugador.style.display = "none";
+
 
 function jugarDeNuevo(){
     const $botones = document.querySelector('.botones');
@@ -138,10 +138,8 @@ function manejarResultado(opcionMaquina){
     elementoResultadoUsuario.className = 'boton '+opcionUsuario;
     elementoResultadoUsuario.appendChild(imgUsuario);
     elementoResultadoMaquina.appendChild(imgMaquina)
-
     $resultadoMaquina.appendChild(elementoResultadoMaquina);
     $resultadoUsuario.appendChild(elementoResultadoUsuario);
-
     
 }
 
